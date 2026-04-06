@@ -69,12 +69,12 @@ export function Dashboard() {
 
   return (
     <div className={cn(
-        "flex-1 overflow-y-auto p-4 md:p-5 space-y-4 relative transition-colors duration-500 custom-scrollbar",
+        "flex-1 overflow-y-auto p-4 md:p-6 space-y-4 relative transition-colors duration-500 custom-scrollbar",
         riskStatus === 'Rutura' ? "bg-red-950/5 shadow-[inset_0_0_150px_rgba(239,68,68,0.05)]" : "bg-background"
     )}>
       
       {/* HEADER SECTION (Compact) */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-2 mb-1">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 mb-1">
           <div>
             <h1 className="text-xl md:text-2xl font-light tracking-tight text-foreground flex items-center gap-2">
                Overview <span className="font-medium text-primary">Estratégico</span>
@@ -82,12 +82,12 @@ export function Dashboard() {
             <p className="text-[10px] text-muted-foreground opacity-70">Visão Integrada de Performance e Valor de Mercado.</p>
           </div>
           
-          <div className="flex items-center gap-2">
-             <div className="bg-primary/10 border border-primary/20 rounded-full px-3 py-1 flex items-center gap-1.5 text-primary">
+          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 md:pb-0">
+             <div className="bg-primary/10 border border-primary/20 rounded-full px-2.5 py-1 flex items-center gap-1.5 text-primary shrink-0">
                 <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
                 <span className="text-[9px] font-semibold uppercase tracking-wider">Cenário {activeScenario.toUpperCase()}</span>
              </div>
-             <div className={cn("flex items-center gap-2 px-3 py-1 border rounded-full backdrop-blur-sm shadow-sm", riskUI.bg)}>
+             <div className={cn("flex items-center gap-2 px-2.5 py-1 border rounded-full backdrop-blur-sm shadow-sm shrink-0", riskUI.bg)}>
                 <RiskIcon className="w-3 h-3" />
                 <span className={cn("text-[9px] font-bold uppercase tracking-tight", riskUI.color)}>{riskUI.text}</span>
              </div>
@@ -106,40 +106,40 @@ export function Dashboard() {
                     Valuation Intrínseco (DCF)
                 </CardTitle>
               </CardHeader>
-              <CardContent className="flex items-center gap-6 pb-3 pt-0 px-4">
+              <CardContent className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 pb-3 pt-0 px-4">
                  <div className="shrink-0">
                     <p className="text-[8px] text-muted-foreground uppercase font-black tracking-widest mb-0.5 opacity-40">Equity Value</p>
-                    <div className="text-2xl font-bold text-foreground tracking-tight leading-none">{formatEUR(valuation.equityValue)}</div>
+                    <div className="text-2xl md:text-3xl font-bold text-foreground tracking-tight leading-none">{formatEUR(valuation.equityValue)}</div>
                  </div>
-                 <div className="flex gap-5 border-l border-white/5 pl-5 pr-2">
+                 <div className="flex gap-4 md:gap-8 border-t sm:border-t-0 sm:border-l border-white/5 pt-3 sm:pt-0 sm:pl-8 pr-2">
                     <div>
                         <p className="text-[8px] text-muted-foreground uppercase font-bold tracking-tight mb-0.5 opacity-30">Enterprise Value</p>
-                        <p className="text-base font-semibold text-slate-200">{formatEUR(valuation.enterpriseValue)}</p>
+                        <p className="text-sm md:text-base font-semibold text-slate-200">{formatEUR(valuation.enterpriseValue)}</p>
                     </div>
                     <div>
                         <p className="text-[8px] text-muted-foreground uppercase font-bold tracking-tight mb-0.5 opacity-30">Terminal Value</p>
-                        <p className="text-base font-semibold text-slate-200">{formatEUR(valuation.terminalValue)}</p>
+                        <p className="text-sm md:text-base font-semibold text-slate-200">{formatEUR(valuation.terminalValue)}</p>
                     </div>
                  </div>
               </CardContent>
           </Card>
 
-          <Card className={cn("border-l-4 shadow-lg transition-all flex flex-col justify-center", 
+          <Card className={cn("border-l-4 shadow-lg transition-all flex flex-col justify-center py-2 lg:py-0", 
              riskStatus === 'Seguro' ? 'border-l-emerald-500 bg-emerald-500/5' : 
              riskStatus === 'Alerta' ? 'border-l-yellow-500 bg-yellow-500/5' : 'border-l-red-500 bg-red-500/5')}>
-              <CardHeader className="py-2 px-4">
+              <CardHeader className="py-2 px-4 shrink-0">
                  <CardTitle className="text-[8px] font-black uppercase tracking-widest text-slate-500 flex items-center gap-1.5">
                     <IconShieldAlert className="w-3 h-3" /> Monitor de Risco
                  </CardTitle>
               </CardHeader>
               <CardContent className="pb-3 pt-0 px-4">
-                 <div className="text-lg font-bold text-foreground tracking-tight leading-tight mb-1">
+                 <div className="text-base md:text-lg font-bold text-foreground tracking-tight leading-tight mb-1">
                     {riskStatus === 'Seguro' ? 'Operação Saudável' : riskStatus === 'Alerta' ? 'Cuidado com Liquidez' : 'Rutura de Caixa'}
                  </div>
                  <div className="pt-1.5 border-t border-white/5">
                     <div className="flex items-baseline justify-between">
                        <p className="text-[8px] text-slate-500 uppercase font-black tracking-widest opacity-40">Mínimo Projetado</p>
-                       <p className="text-lg font-bold text-foreground tracking-tight">{formatEUR(activeYearData.cash)}</p>
+                       <p className="text-base md:text-lg font-bold text-foreground tracking-tight">{formatEUR(activeYearData.cash)}</p>
                     </div>
                  </div>
               </CardContent>

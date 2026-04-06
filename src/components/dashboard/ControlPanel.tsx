@@ -4,10 +4,11 @@ import { Slider } from '@/components/ui/slider';
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
-import { DownloadCloud } from 'lucide-react';
+import { DownloadCloud, X } from 'lucide-react';
 import { CompanySetupModal } from './CompanySetupModal';
+import { Button } from '@/components/ui/button';
 
-export function ControlPanel() {
+export function ControlPanel({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
   const { 
     activeScenario, setActiveScenario,
     scenarios, updateDriver,
@@ -22,10 +23,23 @@ export function ControlPanel() {
   };
 
   return (
-    <div className="w-80 h-full bg-card/50 backdrop-blur-md border-r border-border p-6 flex flex-col gap-6 overflow-y-auto hide-scrollbar">
-      <div>
-        <h2 className="text-xl font-semibold tracking-tight text-foreground">Cockpit Modelador</h2>
-        <p className="text-xs text-muted-foreground mt-1">Gira cenários macro e parâmetros de capital.</p>
+    <div className={cn(
+      "fixed inset-y-0 left-0 w-80 h-full bg-card/95 backdrop-blur-xl border-r border-border p-6 flex flex-col gap-6 overflow-y-auto hide-scrollbar z-50 transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:bg-card/50",
+      isOpen ? "translate-x-0" : "-translate-x-full"
+    )}>
+      <div className="flex items-center justify-between">
+        <div>
+          <h2 className="text-xl font-semibold tracking-tight text-foreground">Cockpit Modelador</h2>
+          <p className="text-[10px] text-muted-foreground mt-1 uppercase tracking-widest font-medium opacity-70">Parâmetros de Capital</p>
+        </div>
+        <Button 
+          variant="ghost" 
+          size="icon" 
+          onClick={onClose}
+          className="lg:hidden text-muted-foreground hover:text-white"
+        >
+          <X className="w-5 h-5" />
+        </Button>
       </div>
 
       {/* Primary Action: Reset/Setup Company Data */}
