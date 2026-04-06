@@ -7,6 +7,7 @@ import { Activity, LayoutDashboard, Wallet, Building2, Menu } from 'lucide-react
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { CashFlowView } from '@/components/dashboard/CashFlowView';
+import { BalanceSheetView } from '@/components/dashboard/BalanceSheetView';
 
 function App() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -77,10 +78,8 @@ function App() {
                   </div>
                 </TabsContent>
                 {/* ... other tab contents shortened for brevity ... */}
-                <TabsContent value="balanco" className="h-full m-0 p-4 md:p-8">
-                  <div className="w-full h-full flex items-center justify-center border-2 border-dashed border-border rounded-xl">
-                    <p className="text-muted-foreground text-sm">Aba Balanço em Construção (Ver Overview)</p>
-                  </div>
+                <TabsContent value="balanco" className="h-full m-0 data-[state=active]:flex flex-col">
+                  <BalanceSheetView />
                 </TabsContent>
                 <TabsContent value="cashflow" className="h-full m-0 data-[state=active]:flex flex-col overflow-hidden">
                   <CashFlowView />
