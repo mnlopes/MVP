@@ -268,11 +268,11 @@ function KPICard({ title, value, subtext, hexColor }: { title: string, value: st
     <Card className="bg-card/60 border-border shadow-md backdrop-blur-sm hover:bg-card/80 transition-all">
       <CardContent className="p-3 md:p-4">
         <div className="flex justify-between items-center mb-1">
-           <p className="text-[8px] uppercase text-muted-foreground tracking-widest font-black opacity-40">{title}</p>
+           <p className="text-[10px] uppercase text-muted-foreground tracking-widest font-black opacity-40">{title}</p>
            {hexColor && <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: hexColor, boxShadow: `0 0 8px ${hexColor}` }} />}
         </div>
         <div className="text-xl font-bold tracking-tight text-foreground leading-none">{value}</div>
-        <p className="text-[8px] text-muted-foreground mt-1.5 font-bold uppercase tracking-tight bg-secondary/20 px-1.5 py-0.5 rounded-sm inline-block">{subtext}</p>
+        <p className="text-[10px] text-muted-foreground mt-1.5 font-bold uppercase tracking-tight bg-secondary/20 px-1.5 py-0.5 rounded-sm inline-block">{subtext}</p>
       </CardContent>
     </Card>
   );
