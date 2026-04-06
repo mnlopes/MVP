@@ -187,7 +187,7 @@ export function Dashboard() {
                 <CartesianGrid strokeDasharray="3 3" stroke="#2a2a35" vertical={false} />
                 <XAxis dataKey="year" stroke="#4b5563" fontSize={11} tickLine={false} axisLine={false} />
                 <YAxis stroke="#4b5563" fontSize={11} tickLine={false} axisLine={false} tickFormatter={(v) => `€${(v/1000).toFixed(0)}k`} />
-                <Tooltip cursor={{ fill: 'rgba(255, 255, 255, 0.04)' }} contentStyle={{ backgroundColor: 'rgba(20, 22, 35, 0.95)', border: 'none', borderRadius: '6px', fontSize: '13px', color: '#fff' }} formatter={(val: number) => formatEUR(val)} />
+                <Tooltip cursor={{ fill: 'rgba(255, 255, 255, 0.04)' }} contentStyle={{ backgroundColor: 'rgba(20, 22, 35, 0.95)', border: 'none', borderRadius: '6px', fontSize: '13px', color: '#fff' }} formatter={(val: any) => typeof val === 'number' ? formatEUR(val) : val} />
                 <Legend content={<InteractiveLegend colorMapping={{ revenue: 0, ebitda: 1, netIncome: 2 }} setCustomColor={setCustomColor} />} />
                 <Bar dataKey="revenue" name="Receita" fill={colors[0]} fillOpacity={0.8} radius={[2, 2, 0, 0]} />
                 <Bar dataKey="ebitda" name="EBITDA" fill={colors[1]} fillOpacity={0.9} radius={[2, 2, 0, 0]} />
@@ -207,7 +207,7 @@ export function Dashboard() {
                 <CartesianGrid strokeDasharray="3 3" stroke="#2a2a35" vertical={false} />
                 <XAxis dataKey="year" stroke="#4b5563" fontSize={11} tickLine={false} axisLine={false} />
                 <YAxis stroke="#4b5563" fontSize={11} tickLine={false} axisLine={false} tickFormatter={(v) => `€${(v/1000).toFixed(0)}k`} />
-                <Tooltip cursor={{ fill: 'rgba(255, 255, 255, 0.04)' }} contentStyle={{ backgroundColor: 'rgba(20, 22, 35, 0.95)', border: 'none', borderRadius: '6px', fontSize: '13px', color: '#fff' }} formatter={(val: number) => formatEUR(val)} />
+                <Tooltip cursor={{ fill: 'rgba(255, 255, 255, 0.04)' }} contentStyle={{ backgroundColor: 'rgba(20, 22, 35, 0.95)', border: 'none', borderRadius: '6px', fontSize: '13px', color: '#fff' }} formatter={(val: any) => typeof val === 'number' ? formatEUR(val) : val} />
                 <Legend content={<InteractiveLegend colorMapping={{ cash: 3, receivables: 4, fixedAssets: 5, payables: 6, debt: 7, equity: 8 }} setCustomColor={setCustomColor} />} />
                 <Bar dataKey="cash" stackId="A" name="Caixa" fill={colors[3]} />
                 <Bar dataKey="receivables" stackId="A" name="Recebíveis" fill={colors[4]} />
@@ -230,7 +230,7 @@ export function Dashboard() {
                 <CartesianGrid strokeDasharray="3 3" stroke="#2a2a35" vertical={false} />
                 <XAxis dataKey="year" stroke="#4b5563" fontSize={11} tickLine={false} axisLine={false} />
                 <YAxis stroke="#4b5563" fontSize={11} tickLine={false} axisLine={false} tickFormatter={(v) => `${v.toFixed(0)}%`} />
-                <Tooltip contentStyle={{ backgroundColor: 'rgba(20, 22, 35, 0.95)', border: 'none', borderRadius: '6px', fontSize: '13px', color: '#fff' }} formatter={(val: number) => `${val.toFixed(1)}%`} />
+                <Tooltip contentStyle={{ backgroundColor: 'rgba(20, 22, 35, 0.95)', border: 'none', borderRadius: '6px', fontSize: '13px', color: '#fff' }} formatter={(val: any) => typeof val === 'number' ? `${val.toFixed(1)}%` : val} />
                 <Legend content={<InteractiveLegend colorMapping={{ grossMarginPercent: 0, ebitdaMarginPercent: 1, netMarginPercent: 2 }} setCustomColor={setCustomColor} />} />
                 <Line type="monotone" dataKey="grossMarginPercent" name="M. Bruta" stroke={colors[0]} strokeWidth={2} dot={{ r: 3 }} />
                 <Line type="monotone" dataKey="ebitdaMarginPercent" name="M. EBITDA" stroke={colors[1]} strokeWidth={2} dot={{ r: 3 }} />
@@ -250,7 +250,7 @@ export function Dashboard() {
                 <CartesianGrid strokeDasharray="3 3" stroke="#2a2a35" vertical={false} />
                 <XAxis dataKey="year" stroke="#4b5563" fontSize={11} tickLine={false} axisLine={false} />
                 <YAxis stroke="#4b5563" fontSize={11} tickLine={false} axisLine={false} tickFormatter={(v) => `€${(v/1000).toFixed(0)}k`} />
-                <Tooltip contentStyle={{ backgroundColor: 'rgba(20, 22, 35, 0.95)', border: 'none', borderRadius: '6px', fontSize: '13px', color: '#fff' }} formatter={(val: number) => formatEUR(val)} />
+                <Tooltip contentStyle={{ backgroundColor: 'rgba(20, 22, 35, 0.95)', border: 'none', borderRadius: '6px', fontSize: '13px', color: '#fff' }} formatter={(val: any) => typeof val === 'number' ? formatEUR(val) : val} />
                 <Legend content={<InteractiveLegend colorMapping={{ fcf: 1, capex: 9 }} setCustomColor={setCustomColor} />} />
                 <Bar dataKey="fcf" name="Fluxo Caixa" fill={colors[1]} radius={[2, 2, 0, 0]} />
                 <Line type="monotone" dataKey="capex" name="Invest (Capex)" stroke={colors[9]} strokeWidth={2} />

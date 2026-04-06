@@ -151,7 +151,7 @@ type FinancialContextProps = {
   setTerminalGrowth: React.Dispatch<React.SetStateAction<number>>;
   
   chartTheme: ChartTheme;
-  setChartTheme: React.Dispatch<React.SetStateAction<ChartTheme>>;
+  setChartTheme: (theme: ChartTheme) => void;
   colors: string[];
   
   // Base Company Data

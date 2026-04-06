@@ -1,4 +1,3 @@
-import React from 'react';
 import { FinancialProvider } from '@/context/FinancialContext';
 import { ControlPanel } from '@/components/dashboard/ControlPanel';
 import { Dashboard } from '@/pages/Dashboard';

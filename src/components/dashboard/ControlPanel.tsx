@@ -1,4 +1,3 @@
-import React from 'react';
 import { useFinancial } from '@/context/FinancialContext';
 import type { ChartTheme, Drivers } from '@/context/FinancialContext';
 import { Slider } from '@/components/ui/slider';
